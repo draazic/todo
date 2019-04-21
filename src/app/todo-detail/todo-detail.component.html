@@ -1,0 +1,24 @@
+<div  *ngIf="todo" >
+    <div class = "marge">
+        <h3 >{{todo.title | uppercase}} Details</h3>
+      <label>
+        <input  [(ngModel)]="todo.title" placeholder="titre"/>
+      </label><br>
+      <label>
+        <input [(ngModel)]="todo.content" placeholder="contenue"/>
+      </label><br>
+      <label>   
+        <span>
+          <h1>{{todo.state}}</h1>
+        </span>
+        
+      </label><br>
+      <!-- <button class="btn btn-default" (click)="goBack()">go back</button> -->
+      <button class="btn btn-default" (click)="save()">save</button>
+      <button  class="btn btn-default" (click)="updateState(todo.id)" style="margin-left: 10px">On done</button>
+    </div>
+   
+</div> 
+
+ 
+

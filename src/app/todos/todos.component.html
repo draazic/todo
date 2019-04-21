@@ -1,0 +1,58 @@
+
+<div style="width: 45%;margin: auto;z-index: 1;">
+  <app-todo-form  (echo)="onRefrech($event)"></app-todo-form>
+</div>
+
+<div class="general" >
+  <h1>My Todolist</h1>
+  
+  
+  <ul class="todos">
+    <li *ngFor="let todo of todos" >
+      
+      <div class="ident"><span>{{todo.id}}</span></div>
+      <div (click)="showDialog = !showDialog;onSelect(todo.id)"><span >{{todo.title}}</span></div>
+      
+      <div class="ident"><button class="delete" title="delete todo"
+        (click)="delete(todo.id)">x</button></div>
+
+      <div  class="ident" style="width: 80px">
+        <button  
+          class="ondone" 
+          title="state todo"
+          (click)="updateState(todo.id)"
+          *ngIf="todo.state===state.todo">
+          On done 
+        </button>
+      </div> 
+      
+    </li>
+  </ul>
+ 
+</div>
+
+
+<div>
+    <app-dialog [(visible)]="showDialog" (up)="onServerRefresh()">
+        <h1>Details</h1>   
+    </app-dialog>
+
+</div>
+   
+
+
+
+
+
+
+
+
+
+  
+
+ 
+
+
+
+
+

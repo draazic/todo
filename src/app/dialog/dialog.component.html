@@ -1,0 +1,30 @@
+<div [@dialog] *ngIf="visible" class="dialog">
+    <ng-content>
+      
+    </ng-content>
+    <div  *ngIf="todo" >
+        <div class = "marge">
+            <h3 >{{todo.title | uppercase}} Details</h3>
+          <label>
+            <input  [(ngModel)]="todo.title" class="form-control" placeholder="titre"/>
+          </label><br>
+          <label>
+            <input [(ngModel)]="todo.content" class="form-control" placeholder="contenue"/>
+          </label><br>
+          <label>   
+            <span>
+              <h1>{{todo.state}}</h1>
+            </span>
+            
+          </label><br>
+          
+          <button class="btn btn-default" (click)="save();close()">save</button>
+          <button  class="btn btn-default" (click)="updateState(todo.id)" style="margin-left: 10px">On done</button>
+        </div>
+       
+    </div> 
+    
+    <button *ngIf="closable" (click)="close()" aria-label="Close" class="dialog__close-btn">X</button>
+    
+  </div>
+<div *ngIf="visible" class="overlay" (click)="close()"></div>
